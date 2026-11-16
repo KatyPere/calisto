@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Каллисто: Космический Штурм</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- HUD -->
+        <div id="hud">
+            <div>Время: <span id="time">0</span> с</div>
+            <div>Скорость: <span id="speed">0</span></div>
+            <div>ΔV: <span id="delta-v">0</span></div>
+            <div style="color: #00ffff;">Топливо: <span id="fuel">100</span>%</div>
+            <div style="color: #00ffcc;">Щит: <span id="shield">1</span></div>
+            <div style="color: #ff4d4d;">Жизни: <span id="lives">3</span> ❤️</div>
+            <div style="color: #ffeb3b;">Очки: <span id="score">0</span></div>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Экран окончания игры -->
+        <div id="game-over" class="hidden">
+            <h2 id="result-title">ПОБЕДА!</h2>
+            <p id="result-text">Вы достигли Каллисто!</p>
+            <p style="color: #ffeb3b; font-size: 20px;">Ваш счет: <span id="final-score">0</span></p>
+            <button id="restartBtn">Заново</button>
+        </div>
+
+        <!-- Окно мини-игры (Пазл) -->
+        <div id="puzzle-overlay" class="hidden">
+            <h2>Взлом системы!</h2>
+            <p>Соберите последовательность: <span id="puzzle-target" style="color: #00ffff; font-size: 24px; font-weight: bold;"></span></p>
+            <div id="puzzle-input" style="color: #ffeb3b; font-size: 24px; font-weight: bold; min-height: 30px;"></div>
+            <div class="puzzle-grid">
+                <button class="puzzle-btn" data-val="1">1</button>
+                <button class="puzzle-btn" data-val="2">2</button>
+                <button class="puzzle-btn" data-val="3">3</button>
+                <button class="puzzle-btn" data-val="4">4</button>
+                <button class="puzzle-btn" data-val="5">5</button>
+                <button class="puzzle-btn" data-val="6">6</button>
+            </div>
+        </div>
+
+        <!-- Панель управления -->
+        <div id="controls">
+            <div class="control-group">
+                <label>Сила: <span id="powerVal">50</span></label>
+                <input type="range" id="power" min="0" max="100" value="50">
+            </div>
+            <div class="control-group">
+                <label>Угол: <span id="angleVal">45</span>°</label>
+                <input type="range" id="angle" min="0" max="180" value="45">
+            </div>
+
+            <button id="shieldToggleBtn" style="background: #00bcd4;">Щит: ВКЛ</button>
+            <button id="launchBtn">Запуск</button>
+            <button id="shootBtn" class="shoot-btn">🔥 Огонь</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
